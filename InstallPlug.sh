@@ -13,9 +13,9 @@ mkdir /plug && cd /plug
 # install Pl^g
 pipenv shell
 
-pipenv install -e git+ssh://git@github.com/plugblockchain/plug@master#egg=plug_framework
+#pipenv install -e git+ssh://git@github.com/plugblockchain/plug@master#egg=plug_framework
 
-pipenv install -e git+ssh://git@github.com/plugblockchain/plug.demo@master#egg=plug_demo
+#pipenv install -e git+ssh://git@github.com/plugblockchain/plug.demo@master#egg=plug_demo
 
 
 # Configure Pl^g Node
@@ -37,6 +37,6 @@ plug:
 EOF
 
 # Initialize 
-nodeplug-dev create-network -n1 node.yaml -d ./nodes
-cd nodes/node_0
-plug run
+#nodeplug-dev create-network -n1 node.yaml -d ./nodes
+#cd nodes/node_0
+#plug run
