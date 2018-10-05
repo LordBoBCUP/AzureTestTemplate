@@ -1,0 +1,14 @@
+plug:
+  network_id: plug.demo.balance
+  max_block_size: 100
+
+  registry:
+    plugins:
+    - plug_demo.balance.BalancePlugin
+
+  initial_state:
+    plug_demo.balance.BalanceModel:
+      137i7u2nxUod3ctEdPe5rN6EHCa8X64rBW:
+          balance: 100
+      1MunZQ7AUnjBLjTeUYU7hM2r9aTM3KYjYn:
+          balance: 100
