@@ -1,0 +1,42 @@
+plug:
+  consensus:
+    proposal_window: PT5S
+    runner:
+      voting_keys:
+      - /plug/id_ed25519
+  indexer_args:
+    default:
+      path:
+        /node/indexers
+  indexers:
+    _transaction:
+    - plug_demo.indexer.AddressToTransactionIndexer
+  network_id: plug.demo.balance
+  max_block_size: 10000
+  proxies:
+    http:
+      apps:
+        _api:
+          version: v1
+        _dashboard: {}
+        _ws:
+          version: v1
+      class: plug.proxy.http.base.HttpProxy
+      host: 0.0.0.0
+      port: 8080
+    zmq:
+      class: plug.proxy.zmq.dense.DenseZmqProxy
+      heartbeat_duration: PT10S
+      host: 0.0.0.0
+      peer_discovery:
+        class: simple_peer.simple.SimplePeerDiscovery
+        host: http://18.130.204.33:7000
+      port: 5555
+  registry:
+    plugins:
+    - plug_demo.balance.BalancePlugin
+  storage:
+    class: plug.storage.sqlite.SqliteStorage
+    path: db.sqlite
+    store_n_states: 100
+    path: /node/db.sqlite

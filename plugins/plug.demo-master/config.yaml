@@ -1,0 +1,15 @@
+plug:
+  network_id: plug.demo.balance
+  max_block_size: 10000
+  consensus:
+    proposal_window: PT5S
+  storage:
+    class: plug.storage.sqlite.SqliteStorage
+    path: db.sqlite
+    store_n_states: 100
+  registry:
+    plugins:
+    - plug_demo.balance.BalancePlugin
+  indexers:
+    _transaction:
+    - plug_demo.indexer.AddressToTransactionIndexer
